@@ -8,6 +8,10 @@ export interface Project {
   image: string;
   tools: string[];
   stat: string;
+  workflowSteps: {
+    icon: React.ElementType;
+    label: string;
+  }[];
 }
 
 export interface Service {

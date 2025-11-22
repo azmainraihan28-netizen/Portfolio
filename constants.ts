@@ -1,4 +1,4 @@
-import { Zap, GitBranch, Database, Bot, Cpu, LayoutTemplate } from 'lucide-react';
+import { Zap, GitBranch, Database, Bot, Cpu, LayoutTemplate, Globe, Sparkles, Mail, MessageSquare, Mic, FileText, Youtube, Linkedin, Sheet } from 'lucide-react';
 import { Service, Project, Testimonial } from './types';
 
 export const NAV_LINKS = [
@@ -41,6 +41,12 @@ export const PROJECTS: Project[] = [
     image: 'https://picsum.photos/800/600?random=1',
     tools: ['n8n', 'Gemini API', 'HubSpot'],
     stat: '300% Increase in Leads',
+    workflowSteps: [
+      { icon: Linkedin, label: 'Scrape' },
+      { icon: Database, label: 'Enrich' },
+      { icon: Sparkles, label: 'AI Draft' },
+      { icon: Mail, label: 'Send' },
+    ]
   },
   {
     id: 'p2',
@@ -50,6 +56,12 @@ export const PROJECTS: Project[] = [
     image: 'https://picsum.photos/800/600?random=2',
     tools: ['Make', 'Zendesk', 'OpenAI'],
     stat: '4hr → 5min Response Time',
+    workflowSteps: [
+      { icon: Mail, label: 'Ticket' },
+      { icon: Bot, label: 'Classify' },
+      { icon: Sparkles, label: 'Draft' },
+      { icon: MessageSquare, label: 'Slack' },
+    ]
   },
   {
     id: 'p3',
@@ -59,6 +71,12 @@ export const PROJECTS: Project[] = [
     image: 'https://picsum.photos/800/600?random=3',
     tools: ['Zapier', 'Whisper', 'Notion'],
     stat: '10x Content Output',
+    workflowSteps: [
+      { icon: Youtube, label: 'Video' },
+      { icon: Mic, label: 'Transcribe' },
+      { icon: Sparkles, label: 'Generate' },
+      { icon: FileText, label: 'Publish' },
+    ]
   },
 ];
 
