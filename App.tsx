@@ -8,6 +8,7 @@ import Process from './components/Process';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ChatWidget from './components/ChatWidget';
+import CaseStudies from './components/CaseStudies';
 
 const App: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ const App: React.FC = () => {
         <Hero />
         <Services />
         <Portfolio />
+        <CaseStudies />
         <Process />
         <Contact />
       </main>

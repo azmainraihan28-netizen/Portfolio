@@ -1,5 +1,5 @@
 import { Zap, GitBranch, Database, Bot, Cpu, LayoutTemplate, Globe, Sparkles, Mail, MessageSquare, Mic, FileText, Youtube, Linkedin, Sheet } from 'lucide-react';
-import { Service, Project, Testimonial } from './types';
+import { Service, Project, Testimonial, CaseStudy } from './types';
 
 export const NAV_LINKS = [
   { name: 'Services', href: '#services' },
@@ -97,4 +97,37 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: "Incredible expertise in AI. The custom agent acts exactly like our best support rep. Highly recommended.",
     avatar: 'https://picsum.photos/100/100?random=5',
   },
+];
+
+export const CASE_STUDIES: CaseStudy[] = [
+  {
+    id: 'cs1',
+    industry: 'Real Estate',
+    title: 'Automated Property Listing',
+    client: 'EstateMax Agencies',
+    techStack: ['Make', 'Gemini API', 'Airtable', 'Webflow'],
+    challenge: 'Agents spent 3+ hours per listing writing descriptions and formatting images, delaying time-to-market significantly.',
+    solution: 'Created an automation where uploading photos to a drive folder triggers Gemini to write SEO-optimized descriptions and updates the Webflow CMS instantly.',
+    results: ['90% reduction in listing time', '2x increase in daily listings', 'Consistent brand voice across all regions']
+  },
+  {
+    id: 'cs2',
+    industry: 'FinTech',
+    title: 'KYC Document Verification',
+    client: 'SecurePay Ltd.',
+    techStack: ['n8n', 'Cloud Vision', 'PostgreSQL', 'Slack'],
+    challenge: 'Manual review of ID documents was causing a 48-hour backlog in user approvals during peak sign-up periods.',
+    solution: 'Built a secure pipeline using Vision API to extract data and check validity scores. High-confidence matches are auto-approved; edge cases route to Slack for human review.',
+    results: ['Instant approval for 70% of users', 'Backlog eliminated in 1 week', 'GDPR compliant secure data handling']
+  },
+  {
+    id: 'cs3',
+    industry: 'Healthcare',
+    title: 'Patient Follow-up System',
+    client: 'MediCare Clinic',
+    techStack: ['Zapier', 'Twilio', 'OpenAI', 'Calendly'],
+    challenge: 'High no-show rates and lack of post-visit follow-ups were affecting revenue and long-term patient care outcomes.',
+    solution: 'Integrated Calendly with Twilio to send SMS reminders. Post-visit, an AI agent sends personalized care tips and review requests based on visit type.',
+    results: ['30% decrease in no-shows', '4.8/5 star rating average', 'Improved patient adherence to treatment']
+  }
 ];

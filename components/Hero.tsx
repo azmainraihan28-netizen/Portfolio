@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
               Start Automating <ArrowRight className="w-5 h-5" />
             </a>
             <a 
-              href="#portfolio" 
+              href="#case-studies" 
               className="px-8 py-4 bg-transparent border border-slate-700 text-white rounded-full font-medium hover:bg-slate-800 transition-colors duration-200"
             >
               View Case Studies

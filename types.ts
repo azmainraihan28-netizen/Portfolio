@@ -31,6 +31,17 @@ export interface Testimonial {
   avatar: string;
 }
 
+export interface CaseStudy {
+  id: string;
+  industry: string;
+  title: string;
+  client: string;
+  techStack: string[];
+  challenge: string;
+  solution: string;
+  results: string[];
+}
+
 export enum ChatSender {
   USER = 'user',
   BOT = 'bot',
