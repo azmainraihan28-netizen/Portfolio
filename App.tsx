@@ -16,7 +16,7 @@ const App: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="bg-slate-950 min-h-screen text-slate-200 selection:bg-primary/30 selection:text-white font-sans"
+      className="min-h-screen font-sans overflow-x-hidden"
     >
       <Header />
       <main>

@@ -13,16 +13,16 @@ const WorkflowVisualizer: React.FC = () => {
   }, []);
 
   const nodes = [
-    { id: 0, icon: MessageSquare, label: 'Trigger', sub: 'New Lead Form', color: 'text-blue-400', bg: 'bg-blue-500/20' },
-    { id: 1, icon: Database, label: 'Enrich', sub: 'Clearbit API', color: 'text-purple-400', bg: 'bg-purple-500/20' },
-    { id: 2, icon: Zap, label: 'Process', sub: 'Gemini AI', color: 'text-yellow-400', bg: 'bg-yellow-500/20' },
-    { id: 3, icon: Mail, label: 'Action', sub: 'Send Email', color: 'text-pink-400', bg: 'bg-pink-500/20' },
-    { id: 4, icon: CheckCircle, label: 'Complete', sub: 'Update CRM', color: 'text-green-400', bg: 'bg-green-500/20' },
+    { id: 0, icon: MessageSquare, label: 'Trigger', sub: 'New Lead Form', color: 'text-blue-500 dark:text-blue-400', bg: 'bg-blue-100 dark:bg-blue-500/20' },
+    { id: 1, icon: Database, label: 'Enrich', sub: 'Clearbit API', color: 'text-purple-500 dark:text-purple-400', bg: 'bg-purple-100 dark:bg-purple-500/20' },
+    { id: 2, icon: Zap, label: 'Process', sub: 'Gemini AI', color: 'text-yellow-500 dark:text-yellow-400', bg: 'bg-yellow-100 dark:bg-yellow-500/20' },
+    { id: 3, icon: Mail, label: 'Action', sub: 'Send Email', color: 'text-pink-500 dark:text-pink-400', bg: 'bg-pink-100 dark:bg-pink-500/20' },
+    { id: 4, icon: CheckCircle, label: 'Complete', sub: 'Update CRM', color: 'text-green-500 dark:text-green-400', bg: 'bg-green-100 dark:bg-green-500/20' },
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto my-12 p-8 rounded-2xl glass-panel border border-slate-700 overflow-hidden relative">
-      <div className="absolute top-0 left-0 w-full h-1 bg-slate-800">
+    <div className="w-full max-w-4xl mx-auto my-12 p-8 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl border border-slate-200 dark:border-slate-700 overflow-hidden relative shadow-2xl">
+      <div className="absolute top-0 left-0 w-full h-1 bg-slate-200 dark:bg-slate-700">
         <motion.div 
           className="h-full bg-gradient-to-r from-primary to-accent"
           animate={{ width: `${(activeStep + 1) * 20}%` }}
@@ -40,7 +40,7 @@ const WorkflowVisualizer: React.FC = () => {
               <div key={node.id} className="relative flex flex-col items-center group">
                 {/* Connecting Line (Desktop) */}
                 {index !== nodes.length - 1 && (
-                  <div className="hidden md:block absolute top-6 left-1/2 w-full h-0.5 bg-slate-800 -z-10">
+                  <div className="hidden md:block absolute top-6 left-1/2 w-full h-0.5 bg-slate-200 dark:bg-slate-700 -z-10">
                      <motion.div 
                         className="h-full bg-primary"
                         initial={{ width: "0%" }}
@@ -52,15 +52,15 @@ const WorkflowVisualizer: React.FC = () => {
 
                 <motion.div
                   className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3 transition-all duration-300 ${
-                    isActive || isPast ? node.bg : 'bg-slate-800'
+                    isActive || isPast ? node.bg : 'bg-slate-100 dark:bg-slate-800'
                   } ${isActive ? 'ring-2 ring-primary shadow-[0_0_20px_rgba(99,102,241,0.5)]' : ''}`}
                   animate={{ scale: isActive ? 1.1 : 1 }}
                 >
-                  <Icon className={`w-6 h-6 ${isActive || isPast ? node.color : 'text-slate-500'}`} />
+                  <Icon className={`w-6 h-6 ${isActive || isPast ? node.color : 'text-slate-400 dark:text-slate-500'}`} />
                 </motion.div>
                 
                 <div className="text-center">
-                  <p className={`text-sm font-bold ${isActive ? 'text-white' : 'text-slate-500'}`}>{node.label}</p>
+                  <p className={`text-sm font-bold ${isActive ? 'text-slate-900 dark:text-white' : 'text-slate-500 dark:text-slate-500'}`}>{node.label}</p>
                   <p className="text-xs text-slate-500 mt-1">{node.sub}</p>
                 </div>
               </div>
@@ -68,13 +68,13 @@ const WorkflowVisualizer: React.FC = () => {
         })}
       </div>
 
-      <div className="mt-8 p-4 bg-slate-900/50 rounded-lg font-mono text-xs text-emerald-400 overflow-hidden h-24 flex flex-col-reverse border border-slate-800">
+      <div className="mt-8 p-4 bg-slate-50 dark:bg-slate-900/50 rounded-lg font-mono text-xs text-emerald-600 dark:text-emerald-400 overflow-hidden h-24 flex flex-col-reverse border border-slate-200 dark:border-slate-800 shadow-inner">
          {activeStep === 0 && <p>{'>'} Event received: form_submission_id_9928</p>}
          {activeStep === 1 && <p>{'>'} Enrichment successful: Role="CTO", Company="TechCorp"</p>}
          {activeStep === 2 && <p>{'>'} AI Thinking: Generating personalized intro based on LinkedIn bio...</p>}
          {activeStep === 3 && <p>{'>'} Email Drafted: Sending via Gmail API...</p>}
          {activeStep === 4 && <p>{'>'} CRM Updated: HubSpot Deal Created (Stage: Qualified)</p>}
-         <p className="text-slate-600 italic"># Live Workflow Execution Log</p>
+         <p className="text-slate-400 dark:text-slate-600 italic"># Live Workflow Execution Log</p>
       </div>
     </div>
   );

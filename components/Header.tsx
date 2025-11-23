@@ -1,10 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Cpu } from 'lucide-react';
+import { Menu, X, Cpu, Sun, Moon } from 'lucide-react';
 import { NAV_LINKS } from '../constants';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+
+  // Initialize theme from localStorage or system preference
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme') as 'dark' | 'light' | null;
+      if (savedTheme) {
+        setTheme(savedTheme);
+      } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+        setTheme('light');
+      }
+    }
+  }, []);
+
+  // Apply theme class to html element
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +68,9 @@ const Header: React.FC = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled || mobileMenuOpen ? 'bg-slate-950/80 backdrop-blur-md border-b border-white/5' : 'bg-transparent'
+        isScrolled || mobileMenuOpen 
+          ? 'bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-white/5' 
+          : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
@@ -50,7 +79,7 @@ const Header: React.FC = () => {
           <div className="bg-gradient-to-br from-primary to-accent p-2 rounded-lg group-hover:shadow-[0_0_15px_rgba(99,102,241,0.5)] transition-shadow duration-300">
             <Cpu className="text-white w-5 h-5" />
           </div>
-          <span className="text-xl font-display font-bold text-white tracking-tight">
+          <span className="text-xl font-display font-bold text-slate-900 dark:text-white tracking-tight">
             Nex<span className="text-primary">Flow</span>
           </span>
         </a>
@@ -62,38 +91,56 @@ const Header: React.FC = () => {
               key={link.name} 
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="text-sm font-medium text-slate-300 hover:text-white hover:scale-105 transition-all duration-200"
+              className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white hover:scale-105 transition-all duration-200"
             >
               {link.name}
             </a>
           ))}
+          
+          <button 
+            onClick={toggleTheme}
+            className="p-2 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          </button>
+
           <a 
             href="#contact" 
             onClick={(e) => handleNavClick(e, '#contact')}
-            className="px-5 py-2 text-sm font-semibold text-white bg-white/10 border border-white/10 rounded-full hover:bg-white/20 hover:border-white/20 transition-all"
+            className="px-5 py-2 text-sm font-semibold text-white bg-slate-900 dark:bg-white/10 border border-transparent dark:border-white/10 rounded-full hover:bg-slate-700 dark:hover:bg-white/20 transition-all shadow-lg dark:shadow-none"
           >
             Book Call
           </a>
         </nav>
 
-        {/* Mobile Toggle */}
-        <button 
-          className="md:hidden text-white p-2"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X /> : <Menu />}
-        </button>
+        {/* Mobile Toggle & Menu Button */}
+        <div className="flex items-center gap-4 md:hidden">
+          <button 
+            onClick={toggleTheme}
+            className="p-2 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+          >
+            {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          </button>
+
+          <button 
+            className="text-slate-900 dark:text-white p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Nav */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-slate-900 border-b border-slate-800 py-6 px-6 flex flex-col gap-4 shadow-2xl">
+        <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-6 px-6 flex flex-col gap-4 shadow-2xl">
           {NAV_LINKS.map((link) => (
             <a 
               key={link.name} 
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="text-lg font-medium text-slate-300 hover:text-white"
+              className="text-lg font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white"
             >
               {link.name}
             </a>
@@ -101,7 +148,7 @@ const Header: React.FC = () => {
           <a 
              href="#contact"
              onClick={(e) => handleNavClick(e, '#contact')}
-             className="mt-2 text-center px-5 py-3 text-base font-bold text-white bg-primary rounded-xl"
+             className="mt-2 text-center px-5 py-3 text-base font-bold text-white bg-primary rounded-xl shadow-lg"
           >
             Book a Call
           </a>

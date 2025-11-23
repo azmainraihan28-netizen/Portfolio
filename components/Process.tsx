@@ -42,7 +42,7 @@ const Process: React.FC = () => {
   ];
 
   return (
-    <section id="process" className="py-24 bg-slate-950 relative overflow-hidden">
+    <section id="process" className="py-24 bg-slate-50 dark:bg-slate-950 relative overflow-hidden transition-colors duration-300">
       {/* Background Tech Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
       
@@ -58,10 +58,10 @@ const Process: React.FC = () => {
                <GitBranch className="w-3 h-3" />
                <span>METHODOLOGY</span>
              </motion.div>
-             <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6">
+             <h2 className="text-3xl md:text-5xl font-display font-bold text-slate-900 dark:text-white mb-6">
                 The Optimization Protocol
              </h2>
-             <p className="text-slate-400 max-w-2xl mx-auto text-lg">
+             <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">
                 A rigorous, engineering-first approach to building resilient automation systems that scale with your business.
              </p>
          </div>
@@ -86,35 +86,35 @@ const Process: React.FC = () => {
                         <div className="hidden md:block w-5/12" />
 
                         {/* Center Node Marker */}
-                        <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 md:translate-x-[-50%] flex items-center justify-center w-10 h-10 rounded-full bg-slate-900 border-4 border-slate-800 z-20 shadow-[0_0_20px_rgba(99,102,241,0.3)] group-hover:scale-110 transition-transform duration-300">
+                        <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 md:translate-x-[-50%] flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-slate-900 border-4 border-slate-200 dark:border-slate-800 z-20 shadow-[0_0_20px_rgba(99,102,241,0.3)] group-hover:scale-110 transition-transform duration-300">
                             <div className="w-2.5 h-2.5 bg-primary rounded-full animate-pulse"></div>
                         </div>
 
                         {/* Content Card */}
                         <div className="w-full md:w-5/12 pl-12 md:pl-0">
-                            <div className={`p-6 md:p-8 rounded-3xl bg-slate-900/50 border border-slate-800 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 relative overflow-hidden group-hover:shadow-2xl group-hover:shadow-primary/10`}>
+                            <div className={`p-6 md:p-8 rounded-3xl bg-white/80 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 relative overflow-hidden group-hover:shadow-2xl group-hover:shadow-primary/10`}>
                                 
                                 {/* Subtle Grid Background inside card */}
                                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#6366f1_1px,transparent_1px)] [background-size:16px_16px]" />
                                 
                                 <div className="relative z-10">
                                   <div className="flex items-center justify-between mb-4">
-                                      <div className={`p-3 rounded-xl bg-slate-800 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300`}>
+                                      <div className={`p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300`}>
                                           <step.icon className="w-6 h-6" />
                                       </div>
-                                      <span className="text-6xl font-display font-bold text-slate-800/50 group-hover:text-slate-700/50 transition-colors select-none">
+                                      <span className="text-6xl font-display font-bold text-slate-200 dark:text-slate-800/50 group-hover:text-slate-300 dark:group-hover:text-slate-700/50 transition-colors select-none">
                                         0{step.id}
                                       </span>
                                   </div>
                                   
-                                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors">{step.title}</h3>
-                                  <p className="text-slate-400 mb-6 leading-relaxed">
+                                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary transition-colors">{step.title}</h3>
+                                  <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
                                       {step.description}
                                   </p>
 
                                   <div className="flex flex-wrap gap-2">
                                       {step.tags.map(tag => (
-                                          <span key={tag} className="px-2.5 py-1 rounded-md bg-slate-950 border border-slate-800 text-xs text-slate-500 font-mono uppercase tracking-wider group-hover:border-primary/30 group-hover:text-primary/70 transition-colors">
+                                          <span key={tag} className="px-2.5 py-1 rounded-md bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-500 font-mono uppercase tracking-wider group-hover:border-primary/30 group-hover:text-primary/70 transition-colors">
                                               {tag}
                                           </span>
                                       ))}
@@ -135,7 +135,7 @@ const Process: React.FC = () => {
            className="text-center mt-12"
          >
             <div className="inline-block p-[1px] rounded-full bg-gradient-to-r from-transparent via-primary to-transparent">
-              <a href="#contact" className="block px-8 py-3 rounded-full bg-slate-950 hover:bg-slate-900 text-white transition-colors flex items-center gap-2 group">
+              <a href="#contact" className="block px-8 py-3 rounded-full bg-slate-900 dark:bg-slate-950 hover:bg-slate-800 dark:hover:bg-slate-900 text-white transition-colors flex items-center gap-2 group">
                   Start Your Transformation <Zap className="w-4 h-4 text-yellow-400 group-hover:scale-110 transition-transform" />
               </a>
             </div>

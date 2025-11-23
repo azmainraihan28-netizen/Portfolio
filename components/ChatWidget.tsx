@@ -60,7 +60,7 @@ const ChatWidget: React.FC = () => {
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
-            className="mb-4 w-[90vw] max-w-[350px] h-[500px] bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+            className="mb-4 w-[90vw] max-w-[350px] h-[500px] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-primary to-violet-600 p-4 flex justify-between items-center">
@@ -74,7 +74,7 @@ const ChatWidget: React.FC = () => {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-950/50">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50 dark:bg-slate-950/50">
               {messages.map((msg) => (
                 <div
                   key={msg.id}
@@ -84,7 +84,7 @@ const ChatWidget: React.FC = () => {
                     className={`max-w-[80%] p-3 rounded-2xl text-sm ${
                       msg.sender === ChatSender.USER
                         ? 'bg-primary text-white rounded-tr-none'
-                        : 'bg-slate-800 text-slate-200 rounded-tl-none border border-slate-700'
+                        : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-none border border-slate-200 dark:border-slate-700 shadow-sm'
                     }`}
                   >
                     {msg.text}
@@ -93,7 +93,7 @@ const ChatWidget: React.FC = () => {
               ))}
               {isLoading && (
                 <div className="flex justify-start">
-                  <div className="bg-slate-800 p-3 rounded-2xl rounded-tl-none border border-slate-700">
+                  <div className="bg-white dark:bg-slate-800 p-3 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-700 shadow-sm">
                     <Loader2 className="w-4 h-4 animate-spin text-accent" />
                   </div>
                 </div>
@@ -102,14 +102,14 @@ const ChatWidget: React.FC = () => {
             </div>
 
             {/* Input */}
-            <div className="p-3 bg-slate-900 border-t border-slate-800 flex gap-2">
+            <div className="p-3 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 flex gap-2">
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                 placeholder="Ask about automation..."
-                className="flex-1 bg-slate-800 text-slate-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 border border-transparent focus:border-primary"
+                className="flex-1 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 border border-transparent focus:border-primary"
               />
               <button
                 onClick={handleSend}
@@ -127,7 +127,7 @@ const ChatWidget: React.FC = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-gradient-to-r from-primary to-secondary text-white p-4 rounded-full shadow-lg hover:shadow-primary/50 transition-all duration-300 group"
+        className="bg-gradient-to-r from-primary to-secondary text-white p-4 rounded-full shadow-lg hover:shadow-primary/50 transition-all duration-300 group relative"
       >
         {isOpen ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
         
