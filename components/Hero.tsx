@@ -4,6 +4,24 @@ import { motion } from 'framer-motion';
 import WorkflowVisualizer from './WorkflowVisualizer';
 
 const Hero: React.FC = () => {
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    } else {
+      // Fallback if element is not found immediately
+      window.location.href = `#${id}`;
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex flex-col justify-center pt-32 pb-20 overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       {/* Background Elements */}
@@ -35,12 +53,14 @@ const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <a 
               href="#contact" 
+              onClick={(e) => handleScroll(e, 'contact')}
               className="px-8 py-4 bg-slate-900 text-white dark:bg-white dark:text-slate-900 rounded-full font-bold text-lg hover:scale-105 transition-transform duration-200 flex items-center gap-2 shadow-xl shadow-primary/20 dark:shadow-[0_0_30px_rgba(255,255,255,0.2)]"
             >
               Start Automating <ArrowRight className="w-5 h-5" />
             </a>
             <a 
               href="#case-studies" 
+              onClick={(e) => handleScroll(e, 'case-studies')}
               className="px-8 py-4 bg-transparent border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-white rounded-full font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200"
             >
               View Case Studies

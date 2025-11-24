@@ -12,9 +12,9 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="flex gap-6">
-          <a href="#" className="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
+          <a href="https://github.com/azmainraihan28-netizen" target="_blank" rel="noopener noreferrer" className="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
           <a href="#" className="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors"><Twitter className="w-5 h-5" /></a>
-          <a href="#" className="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
+          <a href="https://www.linkedin.com/in/azmain-inkiyed-raihan-aba14a392/" target="_blank" rel="noopener noreferrer" className="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
           <a href="mailto:azmainraihan28@gmail.com" className="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors"><Mail className="w-5 h-5" /></a>
         </div>
         
