@@ -1,4 +1,4 @@
-import { Zap, GitBranch, Database, Bot, Cpu, LayoutTemplate, Globe, Sparkles, Mail, MessageSquare, Mic, FileText, Youtube, Linkedin, Sheet } from 'lucide-react';
+import { GitBranch, Database, Bot, Sparkles, Mail, MessageSquare, Mic, FileText, Youtube, Linkedin } from 'lucide-react';
 import { Service, Project, Testimonial, CaseStudy } from './types';
 
 export const NAV_LINKS = [
