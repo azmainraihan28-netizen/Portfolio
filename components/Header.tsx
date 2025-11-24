@@ -69,49 +69,52 @@ const Header: React.FC = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled || mobileMenuOpen 
-          ? 'bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-white/5' 
-          : 'bg-transparent'
+          ? 'bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-white/5 shadow-sm' 
+          : 'bg-transparent py-6'
       }`}
     >
-      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="container mx-auto px-6 py-2 flex items-center justify-between">
         {/* Logo */}
         <a href="#" onClick={(e) => handleNavClick(e, '#')} className="flex items-center gap-2 group">
-          <div className="bg-gradient-to-br from-primary to-accent p-2 rounded-lg group-hover:shadow-[0_0_15px_rgba(99,102,241,0.5)] transition-shadow duration-300">
-            <Cpu className="text-white w-5 h-5" />
+          <div className="bg-gradient-to-br from-primary to-accent p-2.5 rounded-xl group-hover:shadow-[0_0_20px_rgba(99,102,241,0.5)] transition-shadow duration-300">
+            <Cpu className="text-white w-6 h-6" />
           </div>
-          <span className="text-xl font-display font-bold text-slate-900 dark:text-white tracking-tight">
+          <span className="text-2xl font-display font-bold text-slate-900 dark:text-white tracking-tight">
             Nex<span className="text-primary">Flow</span>
           </span>
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-10">
           {NAV_LINKS.map((link) => (
             <a 
               key={link.name} 
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white hover:scale-105 transition-all duration-200"
+              className="text-lg font-display font-semibold tracking-wide text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white hover:-translate-y-0.5 transition-all duration-200 relative group"
             >
               {link.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
           
-          <button 
-            onClick={toggleTheme}
-            className="p-2 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-            aria-label="Toggle theme"
-          >
-            {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-          </button>
+          <div className="flex items-center gap-4 pl-4 border-l border-slate-200 dark:border-slate-800">
+            <button 
+              onClick={toggleTheme}
+              className="p-2.5 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
 
-          <a 
-            href="#contact" 
-            onClick={(e) => handleNavClick(e, '#contact')}
-            className="px-5 py-2 text-sm font-semibold text-white bg-slate-900 dark:bg-white/10 border border-transparent dark:border-white/10 rounded-full hover:bg-slate-700 dark:hover:bg-white/20 transition-all shadow-lg dark:shadow-none"
-          >
-            Book Call
-          </a>
+            <a 
+              href="#contact" 
+              onClick={(e) => handleNavClick(e, '#contact')}
+              className="px-6 py-2.5 text-base font-display font-bold text-white bg-slate-900 dark:bg-white/10 border border-transparent dark:border-white/10 rounded-full hover:bg-slate-700 dark:hover:bg-white/20 transition-all shadow-lg dark:shadow-none hover:scale-105"
+            >
+              Book Call
+            </a>
+          </div>
         </nav>
 
         {/* Mobile Toggle & Menu Button */}
@@ -127,20 +130,20 @@ const Header: React.FC = () => {
             className="text-slate-900 dark:text-white p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? <X /> : <Menu />}
+            {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Nav */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-6 px-6 flex flex-col gap-4 shadow-2xl">
+        <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-8 px-6 flex flex-col gap-6 shadow-2xl h-screen">
           {NAV_LINKS.map((link) => (
             <a 
               key={link.name} 
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="text-lg font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white"
+              className="text-2xl font-display font-bold text-slate-800 dark:text-slate-200 hover:text-primary dark:hover:text-primary pl-2 border-l-2 border-transparent hover:border-primary transition-all"
             >
               {link.name}
             </a>
@@ -148,7 +151,7 @@ const Header: React.FC = () => {
           <a 
              href="#contact"
              onClick={(e) => handleNavClick(e, '#contact')}
-             className="mt-2 text-center px-5 py-3 text-base font-bold text-white bg-primary rounded-xl shadow-lg"
+             className="mt-4 text-center px-6 py-4 text-lg font-display font-bold text-white bg-primary rounded-xl shadow-lg active:scale-95 transition-transform"
           >
             Book a Call
           </a>
