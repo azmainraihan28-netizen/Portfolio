@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect, useRef } from 'react';
 import { PROJECTS } from '../constants';
 import { ExternalLink } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useInView, useSpring, useTransform, animate } from 'framer-motion';
 
 const stepStyles = [
   {
@@ -41,6 +42,36 @@ const stepStyles = [
     hover: "group-hover/node:border-emerald-400 group-hover/node:shadow-[0_0_30px_rgba(16,185,129,0.4)]"
   }
 ];
+
+const StatCounter: React.FC<{ stat: string }> = ({ stat }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  
+  // Extract number from string like "320% Response Rate Boost" -> 320
+  const match = stat.match(/(\d+)/);
+  const targetValue = match ? parseInt(match[0], 10) : 0;
+  const suffix = stat.replace(match ? match[0] : "", "");
+  const prefix = stat.split(match ? match[0] : "")[0] === "" ? "" : stat.split(match ? match[0] : "")[0];
+
+  const [displayValue, setDisplayValue] = useState(0);
+
+  useEffect(() => {
+    if (isInView) {
+      const controls = animate(0, targetValue, {
+        duration: 2,
+        ease: "easeOut",
+        onUpdate: (value) => setDisplayValue(Math.floor(value)),
+      });
+      return () => controls.stop();
+    }
+  }, [isInView, targetValue]);
+
+  return (
+    <span ref={ref}>
+      {prefix}{displayValue}{suffix}
+    </span>
+  );
+};
 
 const ProjectCard: React.FC<{ project: typeof PROJECTS[0], index: number }> = ({ project, index }) => {
   const [activeStep, setActiveStep] = useState(0);
@@ -164,7 +195,9 @@ const ProjectCard: React.FC<{ project: typeof PROJECTS[0], index: number }> = ({
         <div className="flex items-center gap-4">
           <div className="px-6 py-3 bg-white/50 dark:bg-slate-900/50 border-l-4 border-green-500 rounded-r-lg group shadow-sm dark:shadow-none hover:bg-green-50 dark:hover:bg-green-900/10 transition-colors">
             <p className="text-slate-500 dark:text-slate-500 text-xs uppercase tracking-wide mb-1">Impact Metric</p>
-            <p className="text-slate-900 dark:text-white font-bold text-xl group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">{project.stat}</p>
+            <p className="text-slate-900 dark:text-white font-bold text-xl group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
+              <StatCounter stat={project.stat} />
+            </p>
           </div>
         </div>
       </div>
