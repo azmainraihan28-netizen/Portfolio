@@ -4,79 +4,80 @@ import { Service, Project, Testimonial, CaseStudy } from './types';
 
 export const NAV_LINKS = [
   { name: 'Services', href: '#services' },
-  { name: 'Work', href: '#portfolio' },
-  { name: 'Process', href: '#process' },
+  { name: 'Portfolio', href: '#portfolio' },
+  { name: 'How It Works', href: '#process' },
+  { name: 'Case Studies', href: '#case-studies' },
   { name: 'Contact', href: '#contact' },
 ];
 
 export const SERVICES: Service[] = [
   {
     id: '1',
-    title: 'Workflow Automation',
-    description: 'End-to-end business process automation using n8n and Make. Eliminate repetitive tasks and reduce human error.',
+    title: 'Custom Workflow Architecture',
+    description: 'Bespoke automation systems using n8n and Make. Connect your entire tech stack into a single, cohesive engine.',
     icon: GitBranch,
-    features: ['Custom Webhooks', 'Data Transformation', 'Cross-app Sync'],
+    features: ['Complex Logic Routing', 'Error Handling & Retries', 'Scalable Infrastructure'],
   },
   {
     id: '2',
-    title: 'AI Agent Development',
+    title: 'AI Agent Deployment',
     description: 'Custom LLM-powered agents that handle customer support, lead qualification, and internal knowledge retrieval.',
     icon: Bot,
-    features: ['RAG Systems', 'Fine-tuning', 'Multi-modal Agents'],
+    features: ['RAG Systems (Vector DBs)', 'Function Calling / Tool Use', 'Personalized Tone of Voice'],
   },
   {
     id: '3',
-    title: 'API Integration',
-    description: 'Seamlessly connect disconnected tools. If it has an API, I can automate it.',
+    title: 'Data & API Solutions',
+    description: 'Seamlessly migrate, transform, and sync data between disconnected tools. If it has an API, I can automate it.',
     icon: Database,
-    features: ['REST & GraphQL', 'Authentication Handling', 'Error Recovery'],
+    features: ['Advanced Data Mapping', 'Custom API Connectors', 'Legacy System Integration'],
   },
 ];
 
 export const PROJECTS: Project[] = [
   {
     id: 'p1',
-    title: 'Lead Gen Auto-Pilot',
-    category: 'Sales Automation',
-    description: 'Automated outreach system scraping LinkedIn, enriching data via Clearbit, and drafting personalized emails with Gemini.',
-    image: 'https://picsum.photos/800/600?random=1',
+    title: 'Intelligent Lead Enrichment',
+    category: 'Sales Ops',
+    description: 'Automated outreach system that scrapes LinkedIn, enriches data via Apollo, and drafts personalized emails with Gemini 1.5 Pro.',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
     tools: ['n8n', 'Gemini API', 'HubSpot'],
-    stat: '300% Increase in Leads',
+    stat: '320% Response Rate Boost',
     workflowSteps: [
       { icon: Linkedin, label: 'Scrape' },
       { icon: Database, label: 'Enrich' },
-      { icon: Sparkles, label: 'AI Draft' },
+      { icon: Sparkles, label: 'AI Personalize' },
       { icon: Mail, label: 'Send' },
     ]
   },
   {
     id: 'p2',
-    title: 'Support Ticket Triaging',
-    category: 'Customer Operations',
-    description: 'AI system that reads incoming tickets, classifies urgency, suggests answers, and routes to the correct Slack channel.',
-    image: 'https://picsum.photos/800/600?random=2',
+    title: 'Autonomous Support Desk',
+    category: 'Customer Experience',
+    description: 'AI-first ticketing system that classifies urgency, summarizes history, and suggests verified answers to support agents.',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800',
     tools: ['Make', 'Zendesk', 'OpenAI'],
-    stat: '4hr → 5min Response Time',
+    stat: '75% Faster Ticket Resolution',
     workflowSteps: [
-      { icon: Mail, label: 'Ticket' },
-      { icon: Bot, label: 'Classify' },
-      { icon: Sparkles, label: 'Draft' },
-      { icon: MessageSquare, label: 'Slack' },
+      { icon: Mail, label: 'Inbound' },
+      { icon: Bot, label: 'Analyze' },
+      { icon: FileText, label: 'Knowledge Match' },
+      { icon: MessageSquare, label: 'Slack Alert' },
     ]
   },
   {
     id: 'p3',
-    title: 'Content Repurposing Engine',
-    category: 'Marketing',
-    description: 'Takes a YouTube video URL, transcribes it, generates blog posts, tweets, and LinkedIn articles automatically.',
-    image: 'https://picsum.photos/800/600?random=3',
+    title: 'Multi-Channel Content Engine',
+    category: 'Digital Marketing',
+    description: 'Takes a long-form YouTube video, transcribes it, and automatically generates 15+ pieces of micro-content for TikTok and X.',
+    image: 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=800',
     tools: ['Zapier', 'Whisper', 'Notion'],
-    stat: '10x Content Output',
+    stat: '15 hrs/week Saved',
     workflowSteps: [
-      { icon: Youtube, label: 'Video' },
+      { icon: Youtube, label: 'Source' },
       { icon: Mic, label: 'Transcribe' },
-      { icon: Sparkles, label: 'Generate' },
-      { icon: FileText, label: 'Publish' },
+      { icon: Sparkles, label: 'GenAI Clips' },
+      { icon: FileText, label: 'Draft Post' },
     ]
   },
 ];
@@ -84,27 +85,27 @@ export const PROJECTS: Project[] = [
 export const HOW_IT_WORKS = [
   {
     id: 1,
-    title: "Book Discovery call && Planning",
-    description: "We start with a quick strategy call to understand your goals, existing tools, and automation needs. Together, we outline a roadmap that identifies the most impactful workflows to build first for faster results.",
-    image: "https://images.unsplash.com/photo-1573496132002-f6374df330f6?auto=format&fit=crop&q=80&w=800",
-    bgColor: "bg-[#e0f2fe] dark:bg-blue-900/20",
-    accentColor: "text-blue-600 dark:text-blue-400"
+    title: "Strategy & Roadmap",
+    description: "We start with a deep-dive audit of your current processes to identify the highest ROI opportunities. We define clear KPIs and map out the future-state architecture before a single line of code is written.",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200", 
+    bgColor: "bg-[#eef2ff] dark:bg-indigo-950/20",
+    accentColor: "text-indigo-600 dark:text-indigo-400"
   },
   {
     id: 2,
-    title: "Build & Integration",
-    description: "Once the plan is set, I design and implement tailored n8n workflows and AI agents. Each automation is built to connect your tools, streamline daily operations, and eliminate manual work — giving you more time to focus on growth.",
-    image: "https://images.unsplash.com/photo-1522071823991-b9671f903f79?auto=format&fit=crop&q=80&w=800",
-    bgColor: "bg-[#dcfce7] dark:bg-green-900/20",
-    accentColor: "text-green-600 dark:text-green-400"
+    title: "Agile Development",
+    description: "Using low-code powerhouses like n8n or Make combined with custom code where needed, I build robust, self-healing workflows. Every step is logged and monitored for absolute reliability.",
+    image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=1200", 
+    bgColor: "bg-[#fdf2f8] dark:bg-pink-950/20",
+    accentColor: "text-pink-600 dark:text-pink-400"
   },
   {
     id: 3,
-    title: "Launch & Optimization",
-    description: "After testing every step end-to-end, we deploy your automation system. I continue monitoring and refining performance to ensure reliability, speed, and long-term scalability — keeping your business running on autopilot.",
-    image: "https://images.unsplash.com/photo-1600880212319-7834e53f3ee0?auto=format&fit=crop&q=80&w=800",
-    bgColor: "bg-[#ccfbf1] dark:bg-teal-900/20",
-    accentColor: "text-teal-600 dark:text-teal-400"
+    title: "Deployment & Growth",
+    description: "Go live with a stable, documented system. I provide training and post-launch support to ensure your automation continues to evolve as your business scales.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200", 
+    bgColor: "bg-[#ecfdf5] dark:bg-emerald-950/20",
+    accentColor: "text-emerald-600 dark:text-emerald-400"
   }
 ];
 
@@ -126,7 +127,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: 'COO',
     company: 'TechFlow Inc.',
     quote: "The automation systems built completely transformed our operations. We saved 40+ hours a week immediately.",
-    avatar: 'https://picsum.photos/100/100?random=4',
+    avatar: 'https://i.pravatar.cc/150?u=sarah',
   },
   {
     id: 't2',
@@ -134,7 +135,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: 'Founder',
     company: 'StartUp Vision',
     quote: "Incredible expertise in AI. The custom agent acts exactly like our best support rep. Highly recommended.",
-    avatar: 'https://picsum.photos/100/100?random=5',
+    avatar: 'https://i.pravatar.cc/150?u=david',
   },
 ];
 
@@ -142,7 +143,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'cs1',
     industry: 'Real Estate',
-    title: 'Automated Property Listing',
+    title: 'Automated Property Marketing',
     client: 'EstateMax Agencies',
     techStack: ['Make', 'Gemini API', 'Airtable', 'Webflow'],
     challenge: 'Agents spent 3+ hours per listing writing descriptions and formatting images, delaying time-to-market significantly.',
@@ -152,21 +153,11 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'cs2',
     industry: 'FinTech',
-    title: 'KYC Document Verification',
+    title: 'KYC Verification Pipeline',
     client: 'SecurePay Ltd.',
     techStack: ['n8n', 'Cloud Vision', 'PostgreSQL', 'Slack'],
     challenge: 'Manual review of ID documents was causing a 48-hour backlog in user approvals during peak sign-up periods.',
     solution: 'Built a secure pipeline using Vision API to extract data and check validity scores. High-confidence matches are auto-approved; edge cases route to Slack for human review.',
     results: ['Instant approval for 70% of users', 'Backlog eliminated in 1 week', 'GDPR compliant secure data handling']
   },
-  {
-    id: 'cs3',
-    industry: 'Healthcare',
-    title: 'Patient Follow-up System',
-    client: 'MediCare Clinic',
-    techStack: ['Zapier', 'Twilio', 'OpenAI', 'Calendly'],
-    challenge: 'High no-show rates and lack of post-visit follow-ups were affecting revenue and long-term patient care outcomes.',
-    solution: 'Integrated Calendly with Twilio to send SMS reminders. Post-visit, an AI agent sends personalized care tips and review requests based on visit type.',
-    results: ['30% decrease in no-shows', '4.8/5 star rating average', 'Improved patient adherence to treatment']
-  }
 ];
