@@ -1,4 +1,5 @@
-import { GitBranch, Database, Bot, Sparkles, Mail, MessageSquare, Mic, FileText, Youtube, Linkedin } from 'lucide-react';
+
+import { GitBranch, Database, Bot, Sparkles, Mail, MessageSquare, Mic, FileText, Youtube, Linkedin, Zap, Slack, Cloud, MessageCircle, Calendar } from 'lucide-react';
 import { Service, Project, Testimonial, CaseStudy } from './types';
 
 export const NAV_LINKS = [
@@ -78,6 +79,44 @@ export const PROJECTS: Project[] = [
       { icon: FileText, label: 'Publish' },
     ]
   },
+];
+
+export const HOW_IT_WORKS = [
+  {
+    id: 1,
+    title: "Book Discovery call && Planning",
+    description: "We start with a quick strategy call to understand your goals, existing tools, and automation needs. Together, we outline a roadmap that identifies the most impactful workflows to build first for faster results.",
+    image: "https://images.unsplash.com/photo-1573496132002-f6374df330f6?auto=format&fit=crop&q=80&w=800",
+    bgColor: "bg-[#e0f2fe] dark:bg-blue-900/20",
+    accentColor: "text-blue-600 dark:text-blue-400"
+  },
+  {
+    id: 2,
+    title: "Build & Integration",
+    description: "Once the plan is set, I design and implement tailored n8n workflows and AI agents. Each automation is built to connect your tools, streamline daily operations, and eliminate manual work — giving you more time to focus on growth.",
+    image: "https://images.unsplash.com/photo-1522071823991-b9671f903f79?auto=format&fit=crop&q=80&w=800",
+    bgColor: "bg-[#dcfce7] dark:bg-green-900/20",
+    accentColor: "text-green-600 dark:text-green-400"
+  },
+  {
+    id: 3,
+    title: "Launch & Optimization",
+    description: "After testing every step end-to-end, we deploy your automation system. I continue monitoring and refining performance to ensure reliability, speed, and long-term scalability — keeping your business running on autopilot.",
+    image: "https://images.unsplash.com/photo-1600880212319-7834e53f3ee0?auto=format&fit=crop&q=80&w=800",
+    bgColor: "bg-[#ccfbf1] dark:bg-teal-900/20",
+    accentColor: "text-teal-600 dark:text-teal-400"
+  }
+];
+
+export const INTEGRATIONS = [
+  { name: 'Zapier', icon: Zap, color: 'text-orange-500' },
+  { name: 'Slack', icon: Slack, color: 'text-purple-500' },
+  { name: 'Make', icon: GitBranch, color: 'text-blue-500' },
+  { name: 'Google Drive', icon: Cloud, color: 'text-blue-400' },
+  { name: 'WhatsApp', icon: MessageCircle, color: 'text-green-500' },
+  { name: 'Calendly', icon: Calendar, color: 'text-blue-600' },
+  { name: 'HubSpot', icon: Database, color: 'text-orange-600' },
+  { name: 'OpenAI', icon: Bot, color: 'text-emerald-600' }
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
